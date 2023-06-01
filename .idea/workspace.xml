@@ -5,7 +5,27 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="fad41db0-4c47-4c7b-a9da-3bc66a61ccef" name="Changes" comment="Added automation code for login feature">
+      <change afterPath="$PROJECT_DIR$/.idea/uiDesigner.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Test Results - Scenario__Verify_the_number_of_assets_displayed_per_page.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Test Results - TestRunner.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/serenity.properties" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/java/org/solutionhub/hooks/hooks.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/java/org/solutionhub/services/loginPage/LoginService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/java/org/solutionhub/services/producerPage/AssetsService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/java/org/solutionhub/steps/assets/assets.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/java/org/solutionhub/steps/login/login.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/resources/config/config.properties" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/resources/feature_files/features/init/login.feature" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/resources/feature_files/features/producer/assets.feature" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Test Results - Test.html" beforeDir="false" afterPath="$PROJECT_DIR$/Test Results - Test.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/utils/BrowserFactory.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/org/solutionhub/utils/BrowserFactory.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/utils/ConfigReader.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/org/solutionhub/utils/ConfigReader.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/config.properties" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/org/stepdef/Test.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/org/solutionhub/TestRunner.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/org/stepdef/login.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/resources/login.feature" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -26,27 +46,45 @@
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
   </component>
+  <component name="ProblemsViewState">
+    <option name="selectedTabId" value="ProjectErrors" />
+  </component>
   <component name="ProjectId" id="2PEVYyXz6OTtuVGPGhr34NdRrd4" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
-    "settings.editor.selected.configurable": "preferences.pluginManager"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/168150/IdeaProjects/demoJava/solutionhub-automation/src/test/resources/feature_files/features/000_init/login.feature&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.pluginManager&quot;
   }
-}]]></component>
-  <component name="RunManager" selected="JUnit.Test">
-    <configuration name="Feature: login" type="CucumberJavaRunConfigurationType" factoryName="Cucumber java" temporary="true" nameIsGenerated="true">
+}</component>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\168150\IdeaProjects\demoJava\solutionhub-automation\src\test\resources\feature_files\features\test\admin" />
+      <recent name="C:\Users\168150\IdeaProjects\demoJava\solutionhub-automation\src\test\resources\feature_files\features\test" />
+      <recent name="C:\Users\168150\IdeaProjects\demoJava\solutionhub-automation\src\test\resources\feature_files\features\admin\group_admin\init" />
+      <recent name="C:\Users\168150\IdeaProjects\demoJava\solutionhub-automation\src\test\resources\feature_files\features\admin\group_admin" />
+      <recent name="C:\Users\168150\IdeaProjects\demoJava\solutionhub-automation\src\test\resources\feature_files\features\admin" />
+    </key>
+    <key name="CopyClassDialog.RECENTS_KEY">
+      <recent name="org.stepdef" />
+      <recent name="utils" />
+    </key>
+  </component>
+  <component name="RunManager" selected="Cucumber Java.Scenario: Verify the number of assets displayed per page">
+    <configuration name="Feature: login" type="CucumberJavaRunConfigurationType" factoryName="Cucumber java" nameIsGenerated="true">
       <option name="CUCUMBER_CORE_VERSION" value="5" />
-      <option name="FILE_PATH" value="$PROJECT_DIR$/src/test/resources/login.feature" />
+      <option name="FILE_PATH" value="C:\Users\168150\IdeaProjects\demoJava\solutionhub-automation\src\test\resources\feature_files\features\000_init\login.feature" />
       <option name="MAIN_CLASS_NAME" value="io.cucumber.core.cli.Main" />
       <module name="solutionhub-automation" />
       <option name="PROGRAM_PARAMETERS" value=" --plugin org.jetbrains.plugins.cucumber.java.run.CucumberJvm5SMFormatter" />
+      <shortenClasspath name="NONE" />
       <option name="SUGGESTED_NAME" value="Feature: login" />
       <option name="WORKING_DIRECTORY" value="$MODULE_WORKING_DIR$" />
       <extension name="coverage">
@@ -59,15 +97,15 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="Scenario: Login with invalid credentials" type="CucumberJavaRunConfigurationType" factoryName="Cucumber java" temporary="true" nameIsGenerated="true">
+    <configuration name="Scenario: Assets view grid and list" type="CucumberJavaRunConfigurationType" factoryName="Cucumber java" temporary="true" nameIsGenerated="true">
       <option name="CUCUMBER_CORE_VERSION" value="5" />
-      <option name="FILE_PATH" value="$PROJECT_DIR$/src/test/resources/login.feature" />
-      <option name="GLUE" value="org.stepdef" />
+      <option name="FILE_PATH" value="$PROJECT_DIR$/src/test/resources/feature_files/features/producer/assets.feature" />
+      <option name="GLUE" value="org.solutionhub.steps.login org.solutionhub.steps.assets org.solutionhub.hooks" />
       <option name="MAIN_CLASS_NAME" value="io.cucumber.core.cli.Main" />
       <module name="solutionhub-automation" />
-      <option name="NAME_FILTER" value="^Login with invalid credentials$" />
-      <option name="PROGRAM_PARAMETERS" value=" --plugin org.jetbrains.plugins.cucumber.java.run.CucumberJvm5SMFormatter --name &quot;^Login with invalid credentials$&quot;" />
-      <option name="SUGGESTED_NAME" value="Scenario: Login with invalid credentials" />
+      <option name="NAME_FILTER" value="^Assets view grid and list$" />
+      <option name="PROGRAM_PARAMETERS" value=" --plugin org.jetbrains.plugins.cucumber.java.run.CucumberJvm5SMFormatter --name &quot;^Assets view grid and list$&quot;" />
+      <option name="SUGGESTED_NAME" value="Scenario: Assets view grid and list" />
       <option name="WORKING_DIRECTORY" value="$MODULE_WORKING_DIR$" />
       <extension name="coverage">
         <pattern>
@@ -79,15 +117,15 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="Scenario: Login with valid credentials" type="CucumberJavaRunConfigurationType" factoryName="Cucumber java" temporary="true" nameIsGenerated="true">
+    <configuration name="Scenario: Producer is able to sort assets by name and rating" type="CucumberJavaRunConfigurationType" factoryName="Cucumber java" temporary="true" nameIsGenerated="true">
       <option name="CUCUMBER_CORE_VERSION" value="5" />
-      <option name="FILE_PATH" value="$PROJECT_DIR$/src/test/resources/login.feature" />
-      <option name="GLUE" value="org.stepdef" />
+      <option name="FILE_PATH" value="$PROJECT_DIR$/src/test/resources/feature_files/features/producer/assets.feature" />
+      <option name="GLUE" value="org.solutionhub.steps.login org.solutionhub.steps.producer" />
       <option name="MAIN_CLASS_NAME" value="io.cucumber.core.cli.Main" />
       <module name="solutionhub-automation" />
-      <option name="NAME_FILTER" value="^Login with valid credentials$" />
-      <option name="PROGRAM_PARAMETERS" value=" --plugin org.jetbrains.plugins.cucumber.java.run.CucumberJvm5SMFormatter --name &quot;^Login with valid credentials$&quot;" />
-      <option name="SUGGESTED_NAME" value="Scenario: Login with valid credentials" />
+      <option name="NAME_FILTER" value="^Producer is able to sort assets by name and rating$" />
+      <option name="PROGRAM_PARAMETERS" value=" --plugin org.jetbrains.plugins.cucumber.java.run.CucumberJvm5SMFormatter --name &quot;^Producer is able to sort assets by name and rating$&quot;" />
+      <option name="SUGGESTED_NAME" value="Scenario: Producer is able to sort assets by name and rating" />
       <option name="WORKING_DIRECTORY" value="$MODULE_WORKING_DIR$" />
       <extension name="coverage">
         <pattern>
@@ -99,27 +137,113 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="Test" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="Scenario: Search for assets by name" type="CucumberJavaRunConfigurationType" factoryName="Cucumber java" temporary="true" nameIsGenerated="true">
+      <option name="CUCUMBER_CORE_VERSION" value="5" />
+      <option name="FILE_PATH" value="$PROJECT_DIR$/src/test/resources/feature_files/features/producer/assets.feature" />
+      <option name="GLUE" value="org.solutionhub.steps.login org.solutionhub.steps.assets org.solutionhub.hooks" />
+      <option name="MAIN_CLASS_NAME" value="io.cucumber.core.cli.Main" />
       <module name="solutionhub-automation" />
+      <option name="NAME_FILTER" value="^Search for assets by name$" />
+      <option name="PROGRAM_PARAMETERS" value=" --plugin org.jetbrains.plugins.cucumber.java.run.CucumberJvm5SMFormatter --name &quot;^Search for assets by name$&quot;" />
+      <option name="SUGGESTED_NAME" value="Scenario: Search for assets by name" />
+      <option name="WORKING_DIRECTORY" value="$MODULE_WORKING_DIR$" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="org.stepdef.*" />
+          <option name="PATTERN" value="io.cucumber.core.cli.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
-      <option name="PACKAGE_NAME" value="org.stepdef" />
-      <option name="MAIN_CLASS_NAME" value="org.stepdef.Test" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="Scenario: Search for assets by name" type="CucumberJavaRunConfigurationType" factoryName="Cucumber java" temporary="true" nameIsGenerated="true">
+      <option name="CUCUMBER_CORE_VERSION" value="5" />
+      <option name="FILE_PATH" value="$PROJECT_DIR$/src/test/resources/feature_files/features/producer/assets.feature" />
+      <option name="GLUE" value="org.solutionhub.steps" />
+      <option name="MAIN_CLASS_NAME" value="io.cucumber.core.cli.Main" />
+      <module name="solutionhub-automation" />
+      <option name="NAME_FILTER" value="^Search for assets by name$" />
+      <option name="PROGRAM_PARAMETERS" value=" --plugin org.jetbrains.plugins.cucumber.java.run.CucumberJvm5SMFormatter --name &quot;^Search for assets by name$&quot;" />
+      <shortenClasspath name="NONE" />
+      <option name="SUGGESTED_NAME" value="Scenario: Search for assets by name" />
+      <option name="WORKING_DIRECTORY" value="$MODULE_WORKING_DIR$" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="io.cucumber.core.cli.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="Scenario: Verify the number of assets displayed per page" type="CucumberJavaRunConfigurationType" factoryName="Cucumber java" temporary="true" nameIsGenerated="true">
+      <option name="CUCUMBER_CORE_VERSION" value="5" />
+      <option name="FILE_PATH" value="$PROJECT_DIR$/src/test/resources/feature_files/features/producer/assets.feature" />
+      <option name="GLUE" value="org.solutionhub.steps.login org.solutionhub.steps.assets org.solutionhub.hooks" />
+      <option name="MAIN_CLASS_NAME" value="io.cucumber.core.cli.Main" />
+      <module name="solutionhub-automation" />
+      <option name="NAME_FILTER" value="^Verify the number of assets displayed per page$" />
+      <option name="PROGRAM_PARAMETERS" value=" --plugin org.jetbrains.plugins.cucumber.java.run.CucumberJvm5SMFormatter --name &quot;^Verify the number of assets displayed per page$&quot;" />
+      <option name="SUGGESTED_NAME" value="Scenario: Verify the number of assets displayed per page" />
+      <option name="WORKING_DIRECTORY" value="$MODULE_WORKING_DIR$" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="io.cucumber.core.cli.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="TestRunner" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="solutionhub-automation" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="org.solutionhub.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="org.solutionhub" />
+      <option name="MAIN_CLASS_NAME" value="org.solutionhub.TestRunner" />
       <option name="TEST_OBJECT" value="class" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="TestRunner" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="solutionhub-automation" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="org.solutionhub.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="org.solutionhub" />
+      <option name="MAIN_CLASS_NAME" value="org.solutionhub.TestRunner" />
+      <option name="METHOD_NAME" value="" />
+      <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <list>
+      <item itemvalue="Cucumber Java.Feature: login" />
+      <item itemvalue="Cucumber Java.Scenario: Assets view grid and list" />
+      <item itemvalue="Cucumber Java.Scenario: Verify the number of assets displayed per page" />
+      <item itemvalue="Cucumber Java.Scenario: Producer is able to sort assets by name and rating" />
+      <item itemvalue="Cucumber Java.Scenario: Search for assets by name" />
+      <item itemvalue="JUnit.TestRunner" />
+    </list>
     <recent_temporary>
       <list>
-        <item itemvalue="JUnit.Test" />
-        <item itemvalue="Cucumber Java.Feature: login" />
-        <item itemvalue="Cucumber Java.Scenario: Login with valid credentials" />
-        <item itemvalue="Cucumber Java.Scenario: Login with invalid credentials" />
+        <item itemvalue="Cucumber Java.Scenario: Verify the number of assets displayed per page" />
+        <item itemvalue="Cucumber Java.Scenario: Assets view grid and list" />
+        <item itemvalue="JUnit.TestRunner" />
+        <item itemvalue="Cucumber Java.Scenario: Producer is able to sort assets by name and rating" />
+        <item itemvalue="Cucumber Java.Scenario: Search for assets by name" />
       </list>
     </recent_temporary>
   </component>
@@ -171,11 +295,25 @@
           <properties class="java.lang.NullPointerException" package="java.lang" />
           <option name="timeStamp" value="1" />
         </breakpoint>
+        <breakpoint enabled="true" type="java-exception">
+          <properties class="io.cucumber.core.exception.CucumberException" package="io.cucumber.core.exception">
+            <option name="NOTIFY_UNCAUGHT" value="false" />
+          </properties>
+          <option name="timeStamp" value="3" />
+        </breakpoint>
       </breakpoints>
     </breakpoint-manager>
+    <watches-manager>
+      <configuration name="CucumberJavaRunConfigurationType">
+        <watch expression="((CucumberException)CucumberException4289_DebugLabel).cause" custom="io.cucumber.core.exception.CucumberException" />
+      </configuration>
+    </watches-manager>
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
     <SUITE FILE_PATH="coverage/solutionhub_automation$Feature__login.ic" NAME="Feature: login Coverage Results" MODIFIED="1683182728519" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
+      <FILTER>io.cucumber.core.cli.*</FILTER>
+    </SUITE>
+    <SUITE FILE_PATH="coverage/solutionhub_automation$Scenario__Producer_is_able_to_sort_assets_by_name_and_rating.ic" NAME="Scenario: Producer is able to sort assets by name and rating Coverage Results" MODIFIED="1684323729487" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
       <FILTER>io.cucumber.core.cli.*</FILTER>
     </SUITE>
   </component>

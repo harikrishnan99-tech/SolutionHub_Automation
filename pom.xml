@@ -44,12 +44,41 @@
       <artifactId>selenium-java</artifactId>
       <version>4.9.0</version>
     </dependency>
-    <!-- https://mvnrepository.com/artifact/io.cucumber/cucumber-picocontainer -->
+<!--    &lt;!&ndash; https://mvnrepository.com/artifact/io.cucumber/cucumber-picocontainer &ndash;&gt;-->
+<!--    <dependency>-->
+<!--      <groupId>io.cucumber</groupId>-->
+<!--      <artifactId>cucumber-picocontainer</artifactId>-->
+<!--      <version>7.12.0</version>-->
+<!--    </dependency>-->
+    <!-- Serenity dependencies -->
+    <!-- https://mvnrepository.com/artifact/net.serenity-bdd/serenity-core -->
+<!--    <dependency>-->
+<!--      <groupId>net.serenity-bdd</groupId>-->
+<!--      <artifactId>serenity-core</artifactId>-->
+<!--      <version>3.7.1</version>-->
+<!--    </dependency>-->
+<!--    &lt;!&ndash; https://mvnrepository.com/artifact/net.serenity-bdd/serenity-cucumber &ndash;&gt;-->
+<!--    <dependency>-->
+<!--      <groupId>net.serenity-bdd</groupId>-->
+<!--      <artifactId>serenity-cucumber</artifactId>-->
+<!--      <version>3.7.1</version>-->
+<!--      <scope>test</scope>-->
+<!--    </dependency>-->
+
+    <!-- https://mvnrepository.com/artifact/io.qameta.allure/allure-junit4 -->
     <dependency>
-      <groupId>io.cucumber</groupId>
-      <artifactId>cucumber-picocontainer</artifactId>
-      <version>7.12.0</version>
+      <groupId>io.qameta.allure</groupId>
+      <artifactId>allure-junit4</artifactId>
+      <version>2.22.0</version>
+      <scope>test</scope>
     </dependency>
+<!--    <dependency>-->
+<!--      <groupId>io.rest-assured</groupId>-->
+<!--      <artifactId>rest-assured</artifactId>-->
+<!--      <version>4.4.0</version>-->
+<!--      <scope>test</scope>-->
+<!--    </dependency>-->
+
 
   </dependencies>
 
