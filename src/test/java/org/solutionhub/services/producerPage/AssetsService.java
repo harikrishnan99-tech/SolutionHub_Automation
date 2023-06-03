@@ -1,17 +1,18 @@
 package org.solutionhub.services.producerPage;
 
-import org.junit.Assert;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
-import org.solutionhub.TestRunner;
 import org.solutionhub.hooks.hooks;
 
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
+
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertTrue;
 
 public class AssetsService {
     public AssetsService(){
@@ -20,9 +21,7 @@ public class AssetsService {
     private final WebDriver driver = hooks.get();
     private final WebDriverWait wait = hooks.getWait();
     public By btn_asset_number = By.xpath
-            ("/html/body/app-root/lib-sidenav-container/lib-sidenav-content/div[2]/app-assets/app-assets-list-wrapper/as-split/as-split-area[2]/lib-pagination[1]/div/div/div[1]/div/div/div/button[2]");
-    public By txt_asset_number = By.xpath
-            ("//span[@class='secondary-text-and-icons'][contains(text(),'25')]");
+            ("//button[@class='dropdown-item'][contains(text(),'25')]");
     public By txt_searchBar = By.cssSelector
             ("#search");
     public By btn_sort = By.xpath
@@ -37,8 +36,6 @@ public class AssetsService {
             ("//label[@class='button-toggle']//fa-icon[@icon='grid2Horizontal']");
     //    By btn_sort_rating_asc=By.xpath
 //            ("//div[@class='dropdown']//li[contains(text(),' Rating: ASC')]");
-//    //String username=ConfigReader.getProperty("PRODUCER_USERNAME");
-//    String password= ConfigReader.getProperty("PRODUCER_PASSWORD");
     public By btn_grid_view = By.xpath
             ("//label[@class='button-toggle']//fa-icon[@icon='grid']");
     public By btn_asset_number_drop_down = By.xpath
@@ -48,8 +45,36 @@ public class AssetsService {
     public By btn_sidenav_expand = By.xpath("//div[@class='expand-control cursor-pointer']");
     public By btn_sidenav_pin = By.xpath
             ("//button[@class='btn btn-link ml-auto px-1 py-1']");
+
     //    By btn_sort_rating_desc=By.xpath
 //            ("//div[@class='dropdown']//li[contains(text(),' Rating: DESC')]");
+
+    public By btn_product_category_infrastructure=By.xpath
+            ("//span[@class='col pl-0 category-name'][contains(text(),'Infrastructure Software')]");
+    public By btn_product_category_network=By.xpath
+            ("//div[@class='text-truncate'][contains(text(),'Network')]");
+    public By btn_product_category_devops=By.xpath
+            ("//span[@class='col pl-0 category-name'][contains(text(),'DevOps')]");
+    public By btn_product_category_cicd=By.xpath
+            ("//div[@class='text-truncate'][contains(text(),'CICD Pipelines')]");
+    public By txt_product_category1_check=By.xpath
+            ("//span[@class='text text-truncate body3'][contains(text(),'Infrastructure Software')]");
+    public By txt_product_category2_check=By.xpath
+            ("//span[@class='text text-truncate body3'][contains(text(),'DevOps')]");
+    public By btn_solution_category_industry_solution=By.xpath
+            ("//span[@class='col pl-0 category-name'][contains(text(),'Industry Solution')]");
+    public By btn_solution_category_it_software=By.xpath
+            ("//div[@class='text-truncate'][contains(text(),'IT Software')]");
+    public By btn_solution_category_industries=By.xpath
+            ("//span[@class='col pl-0 category-name'][contains(text(),'Industries')]");
+    public By btn_solution_category_healthcare=By.xpath
+            ("//div[@class='text-truncate'][contains(text(),'Healthcare')]");
+    public By txt_solution_category1_check=By.xpath
+            ("//span[@class='text text-truncate body3'][contains(text(),'Industry Solution')]");
+    public By txt_solution_category2_check=By.xpath
+            ("//span[@class='text text-truncate body3'][contains(text(),'Industries')]");
+    public By clear_filter=By.xpath
+            ("//button[@class='btn btn-link size-s ml-8px']");
     public List<WebElement> assetCards = driver.findElements(By.className("assets-list-container"));
 
     public void clickAssetsTab() {
@@ -94,7 +119,7 @@ public class AssetsService {
         }
         List<String> sortedAssetNames = new ArrayList<String>(assetTitles);
         Collections.sort(sortedAssetNames, Collections.reverseOrder());
-        Assert.assertEquals(sortedAssetNames, assetTitles);
+        assertEquals(sortedAssetNames, assetTitles);
     }
 
 //    public void sortRatingAsc(){
@@ -159,18 +184,74 @@ public class AssetsService {
         wait.until(ExpectedConditions.elementToBeClickable(btn_asset_number)).click();
     }
 
-    public void verifyAssetNumber() {
-        String AssetNumberText = driver.findElement(btn_asset_number).getText();
-        String ExpectedAssetNumberText = driver.findElement(txt_asset_number).getText();
-        String[] words = ExpectedAssetNumberText.split("\\s+");
-
-        String ExpectedAssetNumber = "";
-        if (words.length >= 4) {
-            ExpectedAssetNumber = words[3];
+    public void verifyAssetNumber(String expectedCount) {
+        for(WebElement assetCard:assetCards){
+            int actualCount = assetCard.findElements(By.xpath
+                    ("//app-asset-list-item[@class='d-block']")).size();
+            int expectedAssetCardCount = Integer.parseInt(expectedCount);
+            assertEquals(expectedAssetCardCount, actualCount);
         }
-        System.out.println(ExpectedAssetNumber);
-        Assert.assertEquals(AssetNumberText, ExpectedAssetNumber);
-
     }
+
+    public void clickProductCategoryInfrastrucuture(){
+        wait.until(ExpectedConditions.elementToBeClickable(btn_product_category_infrastructure)).click();
+    }
+
+    public void clickProductCategoryNetwork(){
+        wait.until(ExpectedConditions.elementToBeClickable(btn_product_category_network)).click();
+    }
+
+    public void checkProductCategory1(){
+        String ActualProductCategory=driver.findElement(txt_product_category1_check).getText();
+        String ExpectedProductCategory=driver.findElement(btn_product_category_network).getText();
+        boolean isPresent = ActualProductCategory.contains(ExpectedProductCategory);
+        assertTrue("Product Category"+ExpectedProductCategory+"PASSED!!",isPresent);
+    }
+    public void clickProductCategoryDevOps(){
+        wait.until(ExpectedConditions.elementToBeClickable(btn_product_category_devops)).click();
+    }
+
+    public void clickProductCategoryCICDPipelines(){
+        wait.until(ExpectedConditions.elementToBeClickable(btn_product_category_cicd)).click();
+    }
+
+    public void checkProductCategory2(){
+        String ActualProductCategory=driver.findElement(txt_product_category2_check).getText();
+        String ExpectedProductCategory=driver.findElement(btn_product_category_cicd).getText();
+        boolean isPresent = ActualProductCategory.contains(ExpectedProductCategory);
+        assertTrue("Product Category"+ExpectedProductCategory+"PASSED!!",isPresent);
+    }
+
+    public void clickSolutionCategoryIndustrySolution(){
+        wait.until(ExpectedConditions.elementToBeClickable(btn_solution_category_industry_solution)).click();
+    }
+    public void clickSolutionCategoryITSoftware(){
+        wait.until(ExpectedConditions.elementToBeClickable(btn_solution_category_it_software)).click();
+    }
+
+    public void checkSolutionCategory1() {
+        String ActualProductCategory = driver.findElement(txt_solution_category1_check).getText();
+        String ExpectedProductCategory = driver.findElement(btn_solution_category_it_software).getText();
+        boolean isPresent = ActualProductCategory.contains(ExpectedProductCategory);
+        assertTrue("Solution Category" + ExpectedProductCategory + "PASSED!!", isPresent);
+    }
+
+    public void clickSolutionCategoryIndustries(){
+        wait.until(ExpectedConditions.elementToBeClickable(btn_solution_category_industries)).click();
+    }
+    public void clickSolutionCategoryHealthcare(){
+        wait.until(ExpectedConditions.elementToBeClickable(btn_solution_category_healthcare)).click();
+    }
+
+    public void checkSolutionCategory2() {
+        String ActualProductCategory = driver.findElement(txt_solution_category2_check).getText();
+        String ExpectedProductCategory = driver.findElement(btn_solution_category_healthcare).getText();
+        boolean isPresent = ActualProductCategory.contains(ExpectedProductCategory);
+        assertTrue("Solution Category" + ExpectedProductCategory + "PASSED!!", isPresent);
+    }
+        public void ClearFilterResults(){
+        wait.until(ExpectedConditions.elementToBeClickable(clear_filter)).click();
+    }
+
 
 }

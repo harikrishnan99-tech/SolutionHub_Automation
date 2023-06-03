@@ -40,6 +40,6 @@ public class hooks {
                 System.err.println(noSupportScreenshot.getMessage());
             }
         }
-        //driver.quit();
+        driver.quit();
     }
 }
