@@ -6,10 +6,8 @@
   <component name="ChangeListManager">
     <list default="true" id="fad41db0-4c47-4c7b-a9da-3bc66a61ccef" name="Changes" comment="Added automation code for login feature">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Test Results - Scenario__Verify_the_number_of_assets_displayed_per_page.html" beforeDir="false" afterPath="$PROJECT_DIR$/Test Results - Scenario__Verify_the_number_of_assets_displayed_per_page.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/org/solutionhub/hooks/hooks.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/org/solutionhub/hooks/hooks.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/test/java/org/solutionhub/services/producerPage/AssetsService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/org/solutionhub/services/producerPage/AssetsService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/org/solutionhub/steps/assets/assets.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/org/solutionhub/steps/producer/assets.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/org/solutionhub/steps/producer/assets.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/org/solutionhub/steps/producer/assets.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/test/resources/feature_files/features/producer/assets.feature" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/resources/feature_files/features/producer/assets.feature" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -32,7 +30,7 @@
     <option name="stateVersion" value="1" />
   </component>
   <component name="ProblemsViewState">
-    <option name="selectedTabId" value="ProjectErrors" />
+    <option name="selectedTabId" value="CurrentFile" />
   </component>
   <component name="ProjectId" id="2PEVYyXz6OTtuVGPGhr34NdRrd4" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
@@ -62,7 +60,7 @@
       <recent name="utils" />
     </key>
   </component>
-  <component name="RunManager" selected="Cucumber Java.Scenario: Verify &quot;Products&quot; category filter">
+  <component name="RunManager" selected="Cucumber Java.Scenario: Verify filters in assets page">
     <configuration name="Feature: login" type="CucumberJavaRunConfigurationType" factoryName="Cucumber java" nameIsGenerated="true">
       <option name="CUCUMBER_CORE_VERSION" value="5" />
       <option name="FILE_PATH" value="C:\Users\168150\IdeaProjects\demoJava\solutionhub-automation\src\test\resources\feature_files\features\000_init\login.feature" />
@@ -71,46 +69,6 @@
       <option name="PROGRAM_PARAMETERS" value=" --plugin org.jetbrains.plugins.cucumber.java.run.CucumberJvm5SMFormatter" />
       <shortenClasspath name="NONE" />
       <option name="SUGGESTED_NAME" value="Feature: login" />
-      <option name="WORKING_DIRECTORY" value="$MODULE_WORKING_DIR$" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="io.cucumber.core.cli.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="Scenario: Assets view grid and list" type="CucumberJavaRunConfigurationType" factoryName="Cucumber java" temporary="true" nameIsGenerated="true">
-      <option name="CUCUMBER_CORE_VERSION" value="5" />
-      <option name="FILE_PATH" value="$PROJECT_DIR$/src/test/resources/feature_files/features/producer/assets.feature" />
-      <option name="GLUE" value="org.solutionhub.steps.login org.solutionhub.steps.assets org.solutionhub.hooks" />
-      <option name="MAIN_CLASS_NAME" value="io.cucumber.core.cli.Main" />
-      <module name="solutionhub-automation" />
-      <option name="NAME_FILTER" value="^Assets view grid and list$" />
-      <option name="PROGRAM_PARAMETERS" value=" --plugin org.jetbrains.plugins.cucumber.java.run.CucumberJvm5SMFormatter --name &quot;^Assets view grid and list$&quot;" />
-      <option name="SUGGESTED_NAME" value="Scenario: Assets view grid and list" />
-      <option name="WORKING_DIRECTORY" value="$MODULE_WORKING_DIR$" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="io.cucumber.core.cli.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="Scenario: Producer is able to sort assets by name and rating" type="CucumberJavaRunConfigurationType" factoryName="Cucumber java" temporary="true" nameIsGenerated="true">
-      <option name="CUCUMBER_CORE_VERSION" value="5" />
-      <option name="FILE_PATH" value="$PROJECT_DIR$/src/test/resources/feature_files/features/producer/assets.feature" />
-      <option name="GLUE" value="org.solutionhub.steps.login org.solutionhub.steps.producer" />
-      <option name="MAIN_CLASS_NAME" value="io.cucumber.core.cli.Main" />
-      <module name="solutionhub-automation" />
-      <option name="NAME_FILTER" value="^Producer is able to sort assets by name and rating$" />
-      <option name="PROGRAM_PARAMETERS" value=" --plugin org.jetbrains.plugins.cucumber.java.run.CucumberJvm5SMFormatter --name &quot;^Producer is able to sort assets by name and rating$&quot;" />
-      <option name="SUGGESTED_NAME" value="Scenario: Producer is able to sort assets by name and rating" />
       <option name="WORKING_DIRECTORY" value="$MODULE_WORKING_DIR$" />
       <extension name="coverage">
         <pattern>
@@ -152,6 +110,46 @@
       <option name="NAME_FILTER" value="^Verify \&quot;Products\&quot; category filter$" />
       <option name="PROGRAM_PARAMETERS" value=" --plugin org.jetbrains.plugins.cucumber.java.run.CucumberJvm5SMFormatter --name &quot;^Verify \&quot;Products\&quot; category filter$&quot;" />
       <option name="SUGGESTED_NAME" value="Scenario: Verify &quot;Products&quot; category filter" />
+      <option name="WORKING_DIRECTORY" value="$MODULE_WORKING_DIR$" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="io.cucumber.core.cli.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="Scenario: Verify &quot;Solutions&quot; category filter" type="CucumberJavaRunConfigurationType" factoryName="Cucumber java" temporary="true" nameIsGenerated="true">
+      <option name="CUCUMBER_CORE_VERSION" value="5" />
+      <option name="FILE_PATH" value="$PROJECT_DIR$/src/test/resources/feature_files/features/producer/assets.feature" />
+      <option name="GLUE" value="org.solutionhub.steps.login org.solutionhub.hooks org.solutionhub.steps.producer" />
+      <option name="MAIN_CLASS_NAME" value="io.cucumber.core.cli.Main" />
+      <module name="solutionhub-automation" />
+      <option name="NAME_FILTER" value="^Verify \&quot;Solutions\&quot; category filter$" />
+      <option name="PROGRAM_PARAMETERS" value=" --plugin org.jetbrains.plugins.cucumber.java.run.CucumberJvm5SMFormatter --name &quot;^Verify \&quot;Solutions\&quot; category filter$&quot;" />
+      <option name="SUGGESTED_NAME" value="Scenario: Verify &quot;Solutions&quot; category filter" />
+      <option name="WORKING_DIRECTORY" value="$MODULE_WORKING_DIR$" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="io.cucumber.core.cli.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="Scenario: Verify filters in assets page" type="CucumberJavaRunConfigurationType" factoryName="Cucumber java" temporary="true" nameIsGenerated="true">
+      <option name="CUCUMBER_CORE_VERSION" value="5" />
+      <option name="FILE_PATH" value="$PROJECT_DIR$/src/test/resources/feature_files/features/producer/assets.feature" />
+      <option name="GLUE" value="org.solutionhub.steps.login org.solutionhub.hooks org.solutionhub.steps.producer" />
+      <option name="MAIN_CLASS_NAME" value="io.cucumber.core.cli.Main" />
+      <module name="solutionhub-automation" />
+      <option name="NAME_FILTER" value="^Verify filters in assets page$" />
+      <option name="PROGRAM_PARAMETERS" value=" --plugin org.jetbrains.plugins.cucumber.java.run.CucumberJvm5SMFormatter --name &quot;^Verify filters in assets page$&quot;" />
+      <option name="SUGGESTED_NAME" value="Scenario: Verify filters in assets page" />
       <option name="WORKING_DIRECTORY" value="$MODULE_WORKING_DIR$" />
       <extension name="coverage">
         <pattern>
@@ -216,19 +214,19 @@
     </configuration>
     <list>
       <item itemvalue="Cucumber Java.Feature: login" />
-      <item itemvalue="Cucumber Java.Scenario: Assets view grid and list" />
       <item itemvalue="Cucumber Java.Scenario: Verify &quot;Products&quot; category filter" />
+      <item itemvalue="Cucumber Java.Scenario: Verify &quot;Solutions&quot; category filter" />
+      <item itemvalue="Cucumber Java.Scenario: Verify filters in assets page" />
       <item itemvalue="Cucumber Java.Scenario: Verify the number of assets displayed per page" />
-      <item itemvalue="Cucumber Java.Scenario: Producer is able to sort assets by name and rating" />
       <item itemvalue="JUnit.TestRunner" />
     </list>
     <recent_temporary>
       <list>
-        <item itemvalue="Cucumber Java.Scenario: Verify &quot;Products&quot; category filter" />
+        <item itemvalue="Cucumber Java.Scenario: Verify filters in assets page" />
         <item itemvalue="JUnit.TestRunner" />
+        <item itemvalue="Cucumber Java.Scenario: Verify &quot;Products&quot; category filter" />
+        <item itemvalue="Cucumber Java.Scenario: Verify &quot;Solutions&quot; category filter" />
         <item itemvalue="Cucumber Java.Scenario: Verify the number of assets displayed per page" />
-        <item itemvalue="Cucumber Java.Scenario: Assets view grid and list" />
-        <item itemvalue="Cucumber Java.Scenario: Producer is able to sort assets by name and rating" />
       </list>
     </recent_temporary>
   </component>

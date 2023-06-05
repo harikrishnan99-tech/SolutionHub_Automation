@@ -1,8 +1,10 @@
 package org.solutionhub.services.producerPage;
 
 import org.openqa.selenium.By;
+import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.solutionhub.hooks.hooks;
@@ -75,6 +77,48 @@ public class AssetsService {
             ("//span[@class='text text-truncate body3'][contains(text(),'Industries')]");
     public By clear_filter=By.xpath
             ("//button[@class='btn btn-link size-s ml-8px']");
+    public By btn_filter_delivery_method=By.xpath
+            ("//span[@class='col pl-0 filter-name'][contains(text(),'Delivery method')]");
+    public By btn_filter_solution=By.xpath
+            ("//div[@class='checkbox-item__label'][normalize-space(text())='Solution']");
+    public By btn_filter_tooling=By.xpath
+            ("//span[@class='col pl-0 filter-name'][contains(text(),'Tooling')]");
+    public By btn_filter_cloudformation=By.xpath
+            ("//div[@class='checkbox-item__label'][normalize-space(text())='Cloudformation']");
+    public By btn_filter_cloud=By.xpath
+            ("//span[@class='col pl-0 filter-name'][contains(text(),'Cloud')]");
+    public By btn_filter_aws=By.xpath
+            ("//div[@class='checkbox-item__label'][normalize-space(text())='AWS']");
+    public By btn_filter_industry=By.xpath
+            ("//span[@class='col pl-0 filter-name'][contains(text(),'Industry')]");
+    public By btn_filter_health=By.xpath
+            ("//div[@class='checkbox-item__label'][normalize-space(text())='Health']");
+    public By btn_filter_regulation=By.xpath
+            ("//span[@class='col pl-0 filter-name'][contains(text(),'Regulation')]");
+    public By btn_filter_soc1=By.xpath
+            ("//div[@class='checkbox-item__label'][normalize-space(text())='SOC1']");
+    public By btn_filter_license=By.xpath
+            ("//span[@class='col pl-0 filter-name'][contains(text(),'License')]");
+    public By btn_filter_ust_license=By.xpath
+            ("//div[@class='checkbox-item__label'][normalize-space(text())='UST License']");
+    public By btn_filter_publisher=By.xpath
+            ("//span[@class='col pl-0 filter-name'][contains(text(),'Publisher')]");
+    public By btn_filter_test_group=By.xpath
+            ("//div[@class='checkbox-item__label'][normalize-space(text())='Test-Group']");
+    public By txt_filter_solution_check=By.xpath
+            ("//span[@class='text text-truncate body3'][normalize-space(text())='Solution']");
+    public By txt_filter_cloudformation_check=By.xpath
+            ("//span[@class='text text-truncate body3'][normalize-space(text())='Cloudformation']");
+    public By txt_filter_aws_check=By.xpath
+            ("//span[@class='text text-truncate body3'][normalize-space(text())='AWS']");
+    public By txt_filter_health_check=By.xpath
+            ("//span[@class='text text-truncate body3'][normalize-space(text())='Health']");
+    public By txt_filter_soc1_check=By.xpath
+            ("//span[@class='text text-truncate body3'][normalize-space(text())='SOC1']");
+    public By txt_filter_ust_license_check=By.xpath
+            ("//span[@class='text text-truncate body3'][normalize-space(text())='UST License']");
+    public By txt_filter_test_group_check=By.xpath
+            ("//span[@class='text text-truncate body3'][normalize-space(text())='Test-Group']");
     public List<WebElement> assetCards = driver.findElements(By.className("assets-list-container"));
 
     public void clickAssetsTab() {
@@ -193,64 +237,147 @@ public class AssetsService {
         }
     }
 
-    public void clickProductCategoryInfrastrucuture(){
+    public void clickProductCategoryInfrastructure(){
         wait.until(ExpectedConditions.elementToBeClickable(btn_product_category_infrastructure)).click();
     }
 
-    public void clickProductCategoryNetwork(){
+    public void clickProductSecondaryCategoryNetwork(){
         wait.until(ExpectedConditions.elementToBeClickable(btn_product_category_network)).click();
     }
 
-    public void checkProductCategory1(){
-        String ActualProductCategory=driver.findElement(txt_product_category1_check).getText();
-        String ExpectedProductCategory=driver.findElement(btn_product_category_network).getText();
-        boolean isPresent = ActualProductCategory.contains(ExpectedProductCategory);
-        assertTrue("Product Category"+ExpectedProductCategory+"PASSED!!",isPresent);
+    public void checkProductCategory(String category){
+        if(category.equals("Network")){
+            String ActualProductCategory=driver.findElement(txt_product_category1_check).getText();
+            boolean isPresent = ActualProductCategory.contains(category);
+            assertTrue("Product Category"+category+"PASSED!!",isPresent);
+        } else if (category.equals("CICD Pipelines")) {
+            String ActualProductCategory=driver.findElement(txt_product_category2_check).getText();
+            boolean isPresent = ActualProductCategory.contains(category);
+            assertTrue("Product Category"+category+"PASSED!!",isPresent);
+        }
+
     }
     public void clickProductCategoryDevOps(){
         wait.until(ExpectedConditions.elementToBeClickable(btn_product_category_devops)).click();
     }
 
-    public void clickProductCategoryCICDPipelines(){
+    public void clickProductSecondaryCategoryCICDPipelines(){
         wait.until(ExpectedConditions.elementToBeClickable(btn_product_category_cicd)).click();
-    }
-
-    public void checkProductCategory2(){
-        String ActualProductCategory=driver.findElement(txt_product_category2_check).getText();
-        String ExpectedProductCategory=driver.findElement(btn_product_category_cicd).getText();
-        boolean isPresent = ActualProductCategory.contains(ExpectedProductCategory);
-        assertTrue("Product Category"+ExpectedProductCategory+"PASSED!!",isPresent);
     }
 
     public void clickSolutionCategoryIndustrySolution(){
         wait.until(ExpectedConditions.elementToBeClickable(btn_solution_category_industry_solution)).click();
     }
-    public void clickSolutionCategoryITSoftware(){
+    public void clickSolutionSecondaryCategoryITSoftware(){
         wait.until(ExpectedConditions.elementToBeClickable(btn_solution_category_it_software)).click();
     }
 
-    public void checkSolutionCategory1() {
-        String ActualProductCategory = driver.findElement(txt_solution_category1_check).getText();
-        String ExpectedProductCategory = driver.findElement(btn_solution_category_it_software).getText();
-        boolean isPresent = ActualProductCategory.contains(ExpectedProductCategory);
-        assertTrue("Solution Category" + ExpectedProductCategory + "PASSED!!", isPresent);
+    public void checkSolutionCategory(String category) {
+        if(category.equals("IT Software")){
+            String ActualProductCategory = driver.findElement(txt_solution_category1_check).getText();
+            boolean isPresent = ActualProductCategory.contains(category);
+            assertTrue("Solution Category" + ActualProductCategory + "PASSED!!", isPresent);
+        } else if (category.equals("Healthcare")) {
+            String ActualProductCategory = driver.findElement(txt_solution_category2_check).getText();
+            boolean isPresent = ActualProductCategory.contains(category);
+            assertTrue("Solution Category" + ActualProductCategory + "PASSED!!", isPresent);
+        }
     }
 
     public void clickSolutionCategoryIndustries(){
         wait.until(ExpectedConditions.elementToBeClickable(btn_solution_category_industries)).click();
     }
-    public void clickSolutionCategoryHealthcare(){
+    public void clickSolutionSecondaryCategoryHealthcare(){
         wait.until(ExpectedConditions.elementToBeClickable(btn_solution_category_healthcare)).click();
     }
-
-    public void checkSolutionCategory2() {
-        String ActualProductCategory = driver.findElement(txt_solution_category2_check).getText();
-        String ExpectedProductCategory = driver.findElement(btn_solution_category_healthcare).getText();
-        boolean isPresent = ActualProductCategory.contains(ExpectedProductCategory);
-        assertTrue("Solution Category" + ExpectedProductCategory + "PASSED!!", isPresent);
+    public void clearFilterResults(){wait.until(ExpectedConditions.elementToBeClickable(clear_filter)).click();
     }
-        public void ClearFilterResults(){
-        wait.until(ExpectedConditions.elementToBeClickable(clear_filter)).click();
+
+    public void clickFilterDeliveryMethod(){
+//        Actions actions=new Actions(driver);
+//        WebElement filter_delivery_method=driver.findElement(btn_filter_delivery_method);
+//        actions.moveToElement(filter_delivery_method).click();
+        wait.until(ExpectedConditions.elementToBeClickable(btn_filter_delivery_method)).click();
+    }
+
+    public void clickFilterSolution(){
+        wait.until(ExpectedConditions.elementToBeClickable(btn_filter_solution)).click();
+    }
+
+    public void clickFilterTooling(){
+        wait.until(ExpectedConditions.elementToBeClickable(btn_filter_tooling)).click();
+    }
+
+    public void clickFilterCloudFormation(){
+        wait.until(ExpectedConditions.elementToBeClickable(btn_filter_cloudformation)).click();
+    }
+    public void clickFilterCloud(){
+        wait.until(ExpectedConditions.elementToBeClickable(btn_filter_cloud)).click();
+    }
+
+    public void clickFilterAWS(){
+        wait.until(ExpectedConditions.elementToBeClickable(btn_filter_aws)).click();
+    }
+    public void clickFilterIndustry(){
+        wait.until(ExpectedConditions.elementToBeClickable(btn_filter_industry)).click();
+    }
+
+    public void clickFilterHealth(){
+        wait.until(ExpectedConditions.elementToBeClickable(btn_filter_health)).click();
+    }
+    public void clickFilterRegulation(){
+        wait.until(ExpectedConditions.elementToBeClickable(btn_filter_regulation)).click();
+    }
+
+    public void clickFilterSOC1(){
+        wait.until(ExpectedConditions.elementToBeClickable(btn_filter_soc1)).click();
+    }
+    public void clickFilterLicense(){
+        wait.until(ExpectedConditions.elementToBeClickable(btn_filter_license)).click();
+    }
+
+    public void clickFilterUSTLicense(){
+        wait.until(ExpectedConditions.elementToBeClickable(btn_filter_ust_license)).click();
+    }
+
+    public void clickFilterPublisher(){
+        wait.until(ExpectedConditions.elementToBeClickable(btn_filter_publisher)).click();
+    }
+
+    public void clickFilterTestGroup(){
+        wait.until(ExpectedConditions.elementToBeClickable(btn_filter_test_group)).click();
+    }
+
+    public void checkFilter(String filter){
+        if(filter.equals("Solution")){
+            String ActualFilter = driver.findElement(txt_filter_solution_check).getText();
+            boolean isPresent = ActualFilter.contains(filter);
+            assertTrue(ActualFilter, isPresent);
+        } else if (filter.equals("Cloudformation")) {
+            String ActualFilter = driver.findElement(txt_filter_cloudformation_check).getText();
+            boolean isPresent = ActualFilter.contains(filter);
+            assertTrue(ActualFilter, isPresent);
+        } else if (filter.equals("AWS")) {
+            String ActualFilter = driver.findElement(txt_filter_aws_check).getText();
+            boolean isPresent = ActualFilter.contains(filter);
+            assertTrue(ActualFilter, isPresent);
+        } else if (filter.equals("Health")) {
+            String ActualFilter = driver.findElement(txt_filter_health_check).getText();
+            boolean isPresent = ActualFilter.contains(filter);
+            assertTrue(ActualFilter, isPresent);
+        } else if (filter.equals("SOC1")) {
+            String ActualFilter = driver.findElement(txt_filter_soc1_check).getText();
+            boolean isPresent = ActualFilter.contains(filter);
+            assertTrue(ActualFilter, isPresent);
+        }else if (filter.equals("UST License")) {
+            String ActualFilter = driver.findElement(txt_filter_ust_license_check).getText();
+            boolean isPresent = ActualFilter.contains(filter);
+            assertTrue(ActualFilter, isPresent);
+        }else if (filter.equals("Test-Group")) {
+            String ActualFilter = driver.findElement(txt_filter_test_group_check).getText();
+            boolean isPresent = ActualFilter.contains(filter);
+            assertTrue(ActualFilter, isPresent);
+        }
     }
 
 

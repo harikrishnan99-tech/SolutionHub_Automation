@@ -5,7 +5,9 @@ import io.cucumber.java.en.And;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import org.openqa.selenium.By;
+import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.solutionhub.hooks.hooks;
@@ -147,68 +149,97 @@ public class assets {
         assetservice.verifyAssetNumber(expectedCount);
     }
 // Products category filter
-    @When("producer selects primary category filter: Infrastructure Software")
-    public void producerSelectsPrimaryCategoryFilterInfrastructureSoftware() {
-        assetservice.clickProductCategoryInfrastrucuture();
+    @When("producer selects primary category filter {string}")
+    public void producerSelectsPrimaryCategoryFilter(String primaryCategory) {
+        if(primaryCategory.equals("Infrastructure software")){
+            assetservice.clickProductCategoryInfrastructure();
+        } else if (primaryCategory.equals("DevOps")) {
+            assetservice.clickProductCategoryDevOps();
+        }
     }
 
-    @And("producer selects secondary category filter: Network")
-    public void producerSelectsSecondaryCategoryFilterNetwork() {
-        assetservice.clickProductCategoryNetwork();
+    @And("producer selects secondary category filter {string}")
+    public void producerSelectsSecondaryCategoryFilter(String secondaryCategory) {
+        if(secondaryCategory.equals("Network")){
+            assetservice.clickProductSecondaryCategoryNetwork();
+        } else if (secondaryCategory.equals("CICD Pipelines")) {
+            assetservice.clickProductSecondaryCategoryCICDPipelines();
+        }
     }
 
-    @Then("producer should see all assets contained in the given category: Network")
-    public void producerShouldSeeAllAssetsContainedInTheGivenCategoryNetwork() {
-        assetservice.checkProductCategory1();
+    @Then("producer should see all assets contained in category {string}")
+    public void producerShouldSeeAllAssetsContainedInCategory(String category) {
+        assetservice.checkProductCategory(category);
     }
 
-    @When("producer selects primary category filter: DevOps")
-    public void producerSelectsPrimaryCategoryFilterDevOps() {
-        assetservice.clickProductCategoryDevOps();
+    @When("producer selects primary category solution {string}")
+    public void producerSelectsPrimaryCategorySolution(String primaryCategory) {
+        if(primaryCategory.equals("Industry Solution")){
+            assetservice.clickSolutionCategoryIndustrySolution();
+        } else if (primaryCategory.equals("Industries")) {
+            assetservice.clickSolutionCategoryIndustries();
+        }
     }
 
-    @And("producer selects secondary category filter: CICD Pipelines")
-    public void producerSelectsSecondaryCategoryFilterCICDPipelines() {
-        assetservice.clickProductCategoryCICDPipelines();
+    @And("producer selects secondary category solution {string}")
+    public void producerSelectsSecondaryCategorySolution(String secondaryCategory) {
+        if(secondaryCategory.equals("IT Software")){
+            assetservice.clickSolutionSecondaryCategoryITSoftware();
+        } else if (secondaryCategory.equals("Healthcare")) {
+            assetservice.clickSolutionSecondaryCategoryHealthcare();
+        }
     }
 
-    @Then("producer should see all assets contained in the given category: CICD Pipelines")
-    public void producerShouldSeeAllAssetsContainedInTheGivenCategoryCICDPipelines() {
-        assetservice.checkProductCategory2();
+    @Then("producer should see all assets contained in given solution category {string}")
+    public void producerShouldSeeAllAssetsContainedInGivenSolutionCategory(String category) {
+        assetservice.checkSolutionCategory(category);
     }
 
     @And("producer should clear the filter")
     public void producerShouldClearTheFilter() {
-        assetservice.ClearFilterResults();
+        assetservice.clearFilterResults();
+    }
+//filter
+    @When("producer selects filter {string}")
+    public void producerSelectsFilter(String primaryFilter) {
+        if(primaryFilter.equals("Delivery method")){
+            assetservice.clickFilterDeliveryMethod();
+        } else if (primaryFilter.equals("Tooling")) {
+            assetservice.clickFilterTooling();
+        } else if (primaryFilter.equals("Cloud")) {
+            assetservice.clickFilterCloud();
+        } else if (primaryFilter.equals("Industry")) {
+            assetservice.clickFilterIndustry();
+        } else if (primaryFilter.equals("Regulation")) {
+            assetservice.clickFilterRegulation();
+        } else if (primaryFilter.equals("License")) {
+            assetservice.clickFilterLicense();
+        } else if (primaryFilter.equals("Publisher")) {
+            assetservice.clickFilterPublisher();
+        }
     }
 
-    @When("producer selects primary category filter: Industry Solution")
-    public void producerSelectsPrimaryCategoryFilterIndustrySolution() {
-        assetservice.clickSolutionCategoryIndustrySolution();
+    @And("producer selects delivery method {string}")
+    public void producerSelectsDeliveryMethod(String secondaryFilter) {
+        if(secondaryFilter.equals("Solution")){
+            assetservice.clickFilterSolution();
+        } else if (secondaryFilter.equals("Cloudformation")) {
+            assetservice.clickFilterCloudFormation();
+        } else if (secondaryFilter.equals("AWS")) {
+            assetservice.clickFilterAWS();
+        } else if (secondaryFilter.equals("Health")) {
+            assetservice.clickFilterHealth();
+        } else if (secondaryFilter.equals("SOC1")) {
+            assetservice.clickFilterSOC1();
+        } else if (secondaryFilter.equals("Test-Group")) {
+            assetservice.clickFilterTestGroup();
+        } else if (secondaryFilter.equals("UST License")) {
+            assetservice.clickFilterUSTLicense();
+        }
     }
 
-    @And("producer selects secondary category filter: IT Software")
-    public void producerSelectsSecondaryCategoryFilterITSoftware() {
-        assetservice.clickSolutionCategoryITSoftware();
-    }
-
-    @Then("producer should see all assets contained in the given category: IT Software")
-    public void producerShouldSeeAllAssetsContainedInTheGivenCategoryITSoftware() {
-        assetservice.checkSolutionCategory1();
-    }
-
-    @When("producer selects primary category filter: Industries")
-    public void producerSelectsPrimaryCategoryFilterIndustries() {
-        assetservice.clickSolutionCategoryIndustries();
-    }
-
-    @And("producer selects secondary category filter: Healthcare")
-    public void producerSelectsSecondaryCategoryFilterHealthcare() {
-        assetservice.clickSolutionCategoryHealthcare();
-    }
-
-    @Then("producer should see all assets contained in the given category: Healthcare")
-    public void producerShouldSeeAllAssetsContainedInTheGivenCategoryHealthcare() {
-        assetservice.checkSolutionCategory2();
+    @Then("producer should see all assets based on given {string} filter")
+    public void producerShouldSeeAllAssetsBasedOnGivenFilter(String filter) {
+        assetservice.checkFilter(filter);
     }
 }
