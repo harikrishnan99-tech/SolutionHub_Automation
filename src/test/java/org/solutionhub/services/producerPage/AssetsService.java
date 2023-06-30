@@ -1,20 +1,20 @@
 package org.solutionhub.services.producerPage;
 
 import org.openqa.selenium.By;
-import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
-import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.solutionhub.hooks.hooks;
+import org.solutionhub.utils.ConfigReader;
 
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertTrue;
+import static org.junit.Assert.*;
 
 public class AssetsService {
     public AssetsService(){
@@ -22,8 +22,10 @@ public class AssetsService {
     }
     private final WebDriver driver = hooks.get();
     private final WebDriverWait wait = hooks.getWait();
-    public By btn_asset_number = By.xpath
+    public By btn_asset_per_page_25 = By.xpath
             ("//button[@class='dropdown-item'][contains(text(),'25')]");
+    public By btn_asset_per_page_10 = By.xpath
+            ("//button[@class='dropdown-item'][contains(text(),'10')]");
     public By txt_searchBar = By.cssSelector
             ("#search");
     public By btn_sort = By.xpath
@@ -60,7 +62,7 @@ public class AssetsService {
     public By btn_product_category_cicd=By.xpath
             ("//div[@class='text-truncate'][contains(text(),'CICD Pipelines')]");
     public By txt_product_category1_check=By.xpath
-            ("//span[@class='text text-truncate body3'][contains(text(),'Infrastructure Software')]");
+            ("//div[@class='tag']//span[@class='text text-truncate body3'][contains(text(),'Network')]");
     public By txt_product_category2_check=By.xpath
             ("//span[@class='text text-truncate body3'][contains(text(),'DevOps')]");
     public By btn_solution_category_industry_solution=By.xpath
@@ -119,6 +121,48 @@ public class AssetsService {
             ("//span[@class='text text-truncate body3'][normalize-space(text())='UST License']");
     public By txt_filter_test_group_check=By.xpath
             ("//span[@class='text text-truncate body3'][normalize-space(text())='Test-Group']");
+    public By asset_card=By.xpath
+            ("//lib-card[@id='asset-item-143-167']");
+    public By asset_title=By.xpath
+            ("//lib-card[@id='asset-item-143-167']//span[@class='text-truncate'][normalize-space(text())='Cucumber_UI_test']");
+    public By asset_image=By.cssSelector
+            ("img[alt='Cucumber_UI_test']");
+    public By asset_tags=By.xpath
+            ("//lib-card[@id='asset-item-143-167']//div[@class='d-flex flex-wrap mt-4px']");
+    public By txt_asset_version=By.xpath
+            ("//lib-card[@id='asset-item-143-167']//div[@class='d-flex align-items-center mt-16px']");
+    public By txt_asset_publisher_name=By.xpath
+            ("//lib-card[@id='asset-item-143-167']//div[@class='disable min-width-80px'][normalize-space(text())='Publisher:']");
+    public By txt_asset_description=By.xpath
+            ("//lib-card[@id='asset-item-143-167']//div[@class='disable min-width-80px'][normalize-space(text())='Description:']");
+    public By btn_asset_get_it=By.xpath
+            ("//lib-card[@id='asset-item-143-167']//button[@class='btn btn-warning asset-download-btn action-button size-s']");
+    public By btn_asset_link=By.xpath
+            ("//lib-card[@id='asset-item-143-167']//button[@class='btn btn-primary asset-github-link action-button size-s']");
+    public By btn_next_page=By.xpath
+            ("//span[@class='next']//fa-icon[@class='ng-fa-icon fa cursor-pointer font-16px color-brand']");
+    public By badge_private=By.xpath
+            ("//lib-card[@id='asset-item-143-167']//div[@class='asset-access-badge access-badge-private']");
+    public By icon_private_asset=By.xpath
+            ("//fa-icon[@class='ng-fa-icon font-16px color-brand']");
+    public By header_flex=By.xpath
+            ("//nav[@class='navbar navbar-expand-lg d-flex flex-row align-items-center w-100 h-100 p-0']");
+    public By header_title=By.cssSelector
+            ("img[alt='UST PACE SolutionHub']");
+    public By icon_user=By.xpath
+            ("//lib-user-pic[@class='lib-user-pic mr-8px']");
+    public By btn_header_products=By.xpath
+            ("//div[@class='app-nav-item']//span[contains(text(),'Products')]");
+    public By btn_header_product_category_infrastructure=By.xpath
+            ("//a[@class='navigation-dropdown-item cursor-default'][contains(text(),'Infrastructure Software')]");
+    public By btn_header_product_category_network=By.xpath
+            ("//a[@id='dropdown-0-0-0'][contains(text(),'Network')]");
+    public By btn_header_solutions=By.xpath
+            ("//div[@id='nav-item-1']//span[contains(text(),'Solutions')]");
+    public By btn_header_solution_industry_solution=By.xpath
+            ("//a[@id='dropdown-1-0']");
+    public By btn_header_solution_it_software=By.xpath
+            ("//a[@id='dropdown-1-0-0'][contains(text(),'IT Software')]");
     public List<WebElement> assetCards = driver.findElements(By.className("assets-list-container"));
 
     public void clickAssetsTab() {
@@ -225,7 +269,7 @@ public class AssetsService {
     }
 
     public void clickAssetNumber() {
-        wait.until(ExpectedConditions.elementToBeClickable(btn_asset_number)).click();
+        wait.until(ExpectedConditions.elementToBeClickable(btn_asset_per_page_25)).click();
     }
 
     public void verifyAssetNumber(String expectedCount) {
@@ -248,6 +292,7 @@ public class AssetsService {
     public void checkProductCategory(String category){
         if(category.equals("Network")){
             String ActualProductCategory=driver.findElement(txt_product_category1_check).getText();
+            System.out.println("Actual product category"+ActualProductCategory);
             boolean isPresent = ActualProductCategory.contains(category);
             assertTrue("Product Category"+category+"PASSED!!",isPresent);
         } else if (category.equals("CICD Pipelines")) {
@@ -294,9 +339,6 @@ public class AssetsService {
     }
 
     public void clickFilterDeliveryMethod(){
-//        Actions actions=new Actions(driver);
-//        WebElement filter_delivery_method=driver.findElement(btn_filter_delivery_method);
-//        actions.moveToElement(filter_delivery_method).click();
         wait.until(ExpectedConditions.elementToBeClickable(btn_filter_delivery_method)).click();
     }
 
@@ -305,6 +347,9 @@ public class AssetsService {
     }
 
     public void clickFilterTooling(){
+        By btn_show_more=By.xpath
+                ("//button[@class='btn btn-link size-s ml-40px mb-3']");
+        wait.until(ExpectedConditions.elementToBeClickable(btn_show_more)).click();
         wait.until(ExpectedConditions.elementToBeClickable(btn_filter_tooling)).click();
     }
 
@@ -378,6 +423,128 @@ public class AssetsService {
             boolean isPresent = ActualFilter.contains(filter);
             assertTrue(ActualFilter, isPresent);
         }
+    }
+//asset card UI
+    public void locateAssetCard(){
+        wait.until(ExpectedConditions.elementToBeClickable(asset_card)).isDisplayed();
+    }
+
+    public void verifyAssetUIElements(){
+        WebElement asset_name=driver.findElement(asset_title);
+        WebElement asset_logo=driver.findElement(asset_image);
+        WebElement asset_tag=driver.findElement(asset_tags);
+        WebElement asset_version=driver.findElement(txt_asset_version);
+        WebElement asset_publisher=driver.findElement(txt_asset_publisher_name);
+        WebElement asset_description=driver.findElement(txt_asset_description);
+
+        assert asset_name.isDisplayed();
+        assert asset_logo.isDisplayed();
+        assert asset_tag.isDisplayed();
+        assert asset_version.isDisplayed();
+        assert asset_publisher.isDisplayed();
+        assert asset_description.isDisplayed();
+    }
+
+    public void verifyAssetButtons(){
+        wait.until(ExpectedConditions.elementToBeClickable(btn_asset_get_it)).click();
+        WebElement asset_download_popup=driver.findElement(By.xpath
+                ("//div[@class='modal-content']"));
+        assert asset_download_popup.isDisplayed();
+
+        WebElement asset_link_button=driver.findElement(btn_asset_link);
+        asset_link_button.isDisplayed();
+        asset_link_button.isEnabled();
+    }
+
+    //pagination
+    public void clickOnNextPage(){
+        clickAssetNumberDropDown();
+        wait.until(ExpectedConditions.elementToBeClickable(btn_asset_per_page_10)).click();
+        wait.until(ExpectedConditions.elementToBeClickable(btn_next_page)).click();
+    }
+
+    public void verifyPagination(){
+        // Get the current URL
+        String currentUrl = driver.getCurrentUrl();
+
+        // Extract the current page value from the URL using regex
+        String pattern = "page=(\\d+)";
+        Pattern pagePattern = Pattern.compile(pattern);
+        Matcher matcher = pagePattern.matcher(currentUrl);
+
+        // Check if the page attribute value is found and increment it
+        if (matcher.find()) {
+            String currentPageStr = matcher.group(1);
+            int currentPage = Integer.parseInt(currentPageStr);
+
+            // Verify if the page attribute value has been incremented
+            int expectedNextPage = currentPage + 1;
+            assert expectedNextPage == (currentPage + 1);
+            System.out.println("Pagination Done");
+        } else {
+            System.out.println("Pagination error!!");
+            assert false;
+        }
+    }
+
+    public void viewPrivateAssets(){
+        wait.until(ExpectedConditions.elementToBeClickable(badge_private)).isDisplayed();
+    }
+
+    public void verifyPrivateAssetBadge(){
+        WebElement private_asset_badge=driver.findElement(badge_private);
+        if(private_asset_badge.isDisplayed()){
+            wait.until(ExpectedConditions.elementToBeClickable(asset_title)).click();
+            wait.until(ExpectedConditions.elementToBeClickable(icon_private_asset)).isDisplayed();
+        }else{
+            System.out.println("Asset is not Private");
+        }
+    }
+    //Header component
+    public void locateHeaderComponent(){
+        wait.until(ExpectedConditions.elementToBeClickable(header_flex)).isDisplayed();
+    }
+
+    public void locateHeaderTitle(){
+        wait.until(ExpectedConditions.elementToBeClickable(header_title)).isDisplayed();
+    }
+
+    public void verifyHeaderTitle(String title){
+        WebElement title_header=driver.findElement(header_title);
+        String altText = title_header.getAttribute("alt");
+        assertEquals(title,altText);
+    }
+
+    public void clickHeaderTitle(){
+        String expectedUrl= ConfigReader.getProperty("URL_QA");
+        System.out.println("Landing page URL:"+expectedUrl);
+        String currentUrl=driver.getCurrentUrl();
+        System.out.println("Assets page URL:"+currentUrl);
+        wait.until(ExpectedConditions.elementToBeClickable(header_title)).click();
+        assertEquals(currentUrl,expectedUrl);
+    }
+
+    public void checkUserIcon(){
+        wait.until(ExpectedConditions.elementToBeClickable(icon_user)).isDisplayed();
+    }
+
+    public void clickHeaderProductCategoryInfrastructure(){
+        wait.until(ExpectedConditions.elementToBeClickable(btn_header_products)).click();
+        wait.until(ExpectedConditions.elementToBeClickable(btn_header_product_category_infrastructure)).click();
+    }
+
+    public void clickHeaderProductSecondaryCategoryNetwork(){
+        wait.until(ExpectedConditions.elementToBeClickable(btn_header_product_category_network)).click();
+    }
+
+    public void clickHeaderSolutionCategoryIndustrySolution(){
+        wait.until(ExpectedConditions.elementToBeClickable(btn_header_product_category_infrastructure)).click();
+        wait.until(ExpectedConditions.elementToBeClickable(btn_header_solutions)).click();
+        wait.until(ExpectedConditions.elementToBeClickable(btn_header_solution_industry_solution)).click();
+    }
+
+    public void clickHeaderSolutionCategoryITSoftware(){
+        wait.until(ExpectedConditions.elementToBeClickable(btn_header_solution_it_software)).click();
     }
 
 

@@ -2,18 +2,16 @@ package org.solutionhub.steps.producer;
 
 import io.cucumber.core.exception.CucumberException;
 import io.cucumber.java.en.And;
+import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import org.openqa.selenium.By;
-import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.solutionhub.hooks.hooks;
 import org.solutionhub.services.producerPage.AssetsService;
 import org.solutionhub.steps.login.login;
-
 import static junit.framework.TestCase.assertEquals;
 
 public class assets {
@@ -241,5 +239,85 @@ public class assets {
     @Then("producer should see all assets based on given {string} filter")
     public void producerShouldSeeAllAssetsBasedOnGivenFilter(String filter) {
         assetservice.checkFilter(filter);
+    }
+//assets card UI
+    @When("producer is on assets page")
+    public void producerIsOnAssetsPage() {
+        assetservice.locateAssetCard();
+    }
+
+    @Then("producer should see all necessary UI elements on assets card")
+    public void producerShouldSeeAllNecessaryUIElementsOnAssetsCard() {
+        assetservice.verifyAssetUIElements();
+    }
+
+    @And("producer should be able to click asset download button and asset link button on assets card")
+    public void producerShouldBeAbleToClickAssetDownloadButtonAndAssetLinkButtonOnAssetsCard() {
+        assetservice.verifyAssetButtons();
+    }
+//pagination
+    @When("producer clicks on next page button")
+    public void producerClicksOnNextPageButton() {
+        assetservice.clickOnNextPage();
+    }
+
+    @Then("producer should navigate to next page")
+    public void producerShouldNavigateToNextPage() {
+        assetservice.verifyPagination();
+    }
+//private assets
+    @Then("producer should see private assets")
+    public void producerShouldSeePrivateAssets() {
+        assetservice.viewPrivateAssets();
+    }
+
+    @And("all private assets should have a Private badge")
+    public void allPrivateAssetsShouldHaveAPrivateBadge() {
+        assetservice.verifyPrivateAssetBadge();
+    }
+
+    @Given("producer is on the header component in assets page")
+    public void producerIsOnTheHeaderComponentInAssetsPage() {
+        assetservice.locateHeaderComponent();
+    }
+
+    @When("producer locates the title in header component")
+    public void producerLocatesTheTitleInHeaderComponent() {
+        assetservice.locateHeaderTitle();
+    }
+
+    @Then("producer should be able to see the expected title {string}")
+    public void producerShouldBeAbleToSeeTheExpectedTitle(String title) {
+        assetservice.verifyHeaderTitle(title);
+    }
+
+    @And("producer should be able to navigate to SolutionHub landing page after clicking the title")
+    public void producerShouldBeAbleToNavigateToSolutionHubLandingPageAfterClickingTheTitle() {
+        assetservice.clickHeaderTitle();
+    }
+
+    @And("producer should be able to see the user icon in header component")
+    public void producerShouldBeAbleToSeeTheUserIconInHeaderComponent() {
+        assetservice.checkUserIcon();
+    }
+
+    @When("producer selects primary category product filter {string} in header component")
+    public void producerSelectsPrimaryCategoryFilterInHeaderComponent(String primaryCategory) {
+        assetservice.clickHeaderProductCategoryInfrastructure();
+    }
+
+    @And("producer selects secondary category product filter {string} in header component")
+    public void producerSelectsSecondaryCategoryFilterInHeaderComponent(String secondaryCategory) {
+        assetservice.clickHeaderProductSecondaryCategoryNetwork();
+    }
+
+    @When("producer selects primary category solution filter {string} in header component")
+    public void producerSelectsPrimaryCategorySolutionFilterInHeaderComponent(String primaryCategory) {
+        assetservice.clickHeaderSolutionCategoryIndustrySolution();
+    }
+
+    @And("producer selects secondary category solution filter {string} in header component")
+    public void producerSelectsSecondaryCategorySolutionFilterInHeaderComponent(String secondaryCategory) {
+        assetservice.clickHeaderSolutionCategoryITSoftware();
     }
 }

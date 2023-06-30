@@ -80,6 +80,34 @@ Feature: Producer Assets Page
     And producer selects delivery method "Test-Group"
     Then producer should see all assets based on given "Test-Group" filter
 
+  Scenario: Verify Asset card UI elements
+    When producer is on assets page
+    Then producer should see all necessary UI elements on assets card
+    And producer should be able to click asset download button and asset link button on assets card
+
+  Scenario: Verify pagination in assets page
+    When producer clicks on next page button
+    Then producer should navigate to next page
+
+  Scenario: Verify Private badge in asset card for private assets
+    When producer is on assets page
+    Then producer should see private assets
+    And all private assets should have a Private badge
+
+  Scenario: Verify the header flex UI elements in assets page
+    Given producer is on the header component in assets page
+    When producer locates the title in header component
+    Then producer should be able to see the expected title "UST PACE SolutionHub"
+    And producer should be able to navigate to SolutionHub landing page after clicking the title
+    And producer should be able to see the user icon in header component
+    When producer selects primary category product filter "Infrastructure Software" in header component
+    And producer selects secondary category product filter "Network" in header component
+    Then producer should see all assets contained in category "Network"
+    When producer selects primary category solution filter "Industry Solution" in header component
+    And producer selects secondary category solution filter "IT Software" in header component
+    Then producer should see all assets contained in given solution category "IT Software"
+
+
 
 
 
